@@ -1,0 +1,128 @@
+.calendar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px #888;
+}
+
+.header {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 24px;
+  height: 10%;
+  button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    font-size: 24px;
+    padding: 4;
+    margin: 0;
+    border: 0;
+    outline: none;
+    line-height: initial;
+    border: 2px solid black;
+    box-sizing: border-box;
+    span {
+      transition-property: transform;
+      transition-duration: 0.2s;
+    }
+    &:hover {
+      transform: rotate(45deg) scale(0.7);
+      background-color: #f2f2f200;
+      border: 0;
+      span {
+        transform: rotate(-135deg) scale(1.7);
+      }
+    }
+  }
+}
+.content {
+  height: 90%;
+  display: flex;
+}
+.collapse {
+  padding: 0 24px;
+  > div {
+    &:first-child {
+      height: 10%;
+    }
+    &:last-child {
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: right;
+      font-size: 18px;
+
+      .activeIcon {
+        height: 0;
+        flex: 0;
+      }
+      > div {
+        flex: 1;
+        transition: all ease 0.3s;
+        overflow: hidden;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.days {
+  flex: 1;
+  height: 100%;
+  .days-weekdays {
+    height: 10%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    .day-of-week {
+      display: grid;
+      place-items: center;
+    }
+  }
+  .days-content {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .day {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: #333;
+      overflow: hidden;
+      border-right: 1px solid #ddd;
+      &:first-child {
+        border-left: 1px solid #ddd;
+      }
+      box-sizing: border-box;
+    }
+    .days-group {
+      flex: 1;
+      text-align: center;
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(7, 1fr);
+      overflow: hidden;
+      transition: all ease 0.3s;
+    }
+    .extraDay {
+      color: #ddd;
+    }
+    .activeGroup {
+      height: 0;
+      flex: 0;
+    }
+  }
+}
